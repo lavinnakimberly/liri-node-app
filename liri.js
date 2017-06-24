@@ -18,11 +18,30 @@ var request = require("request");
  switch(action) {
     case "my-tweets":
         console.log("my-tweets");
+        var Twitter = require('./key');
+ 
+    var twitterRestClient = new Twitter.RestClient(
+        'consumer_key',
+        'consumer_secret',
+        'token',
+        'token_secret'
+        );
+ 
+    twitterRestClient.statusesHomeTimeline({}, function(error, result) {
+    if (error)
+    {
+        console.log('Error: ' + (error.code ? error.code + ' ' + error.message : error.message));
+    }
+ 
+    if (result)
+    {
+        console.log(result);
+    }
+});
             break;
         case "spotify-this-song":
-            console.log("spotify-this-song");
-            
- 
+            console.log("spotify-this-song");  
+    
         var spotify = new Spotify({id: "f3def5c7d1ad4b289d9c1022ffaad070", secret: "63aad47916024a6c91753ddf1e8a5b18"});
  
         spotify.search({ type: 'track', query: searchTerm }, function(err, data) {

@@ -8,6 +8,7 @@ var fs = require("fs");
 var exec = require('child_process').exec;
 var key = require('./key');
 var Spotify = require('node-spotify-api');
+var Twitter = require('node-twitter');
 
     if (searchTerm === "") {
     searchTerm = "Mr. Nobody"
@@ -18,13 +19,12 @@ var request = require("request");
  switch(action) {
     case "my-tweets":
         console.log("my-tweets");
-        var Twitter = require('./key');
  
     var twitterRestClient = new Twitter.RestClient(
-        'consumer_key',
-        'consumer_secret',
-        'token',
-        'token_secret'
+        'EyG7cskZNe3QQ7bnGRzfOyYnE',
+        'xOcglcjZxHI0R0tTaQiOIxE4YDBUqvqNJLoxyRVJpOcRSxYw4N',
+        '875389293337890816-slYOLsoswR0m6Q7zNl9hTSMi2UFYZSo',
+        'usstcxmqv1DZSK6GLdBxmOqJr776gb7Qf4ZwAY6tqNLio'
         );
  
     twitterRestClient.statusesHomeTimeline({}, function(error, result) {
